@@ -6,7 +6,6 @@ import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,12 +13,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import java.io.IOException;
-import java.io.InputStream;
+import androidx.appcompat.app.AppCompatActivity;
 
+import org.wysaid.cgeDemo.demoUtils.PermissionUtil;
 import org.wysaid.common.Common;
 import org.wysaid.myUtils.MsgUtil;
 import org.wysaid.nativePort.CGENativeLibrary;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -223,8 +225,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             try {
-                if (cls != null)
-                    startActivity(new Intent(MainActivity.this, cls));
+                startActivity(new Intent(MainActivity.this, cls));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -248,6 +249,8 @@ public class MainActivity extends AppCompatActivity {
         //The second param will be passed as the second arg of the callback function.
         //第二个参数根据自身需要设置， 将作为 loadImage 第二个参数回传
         CGENativeLibrary.setLoadImageCallback(mLoadImageCallback, null);
+
+        PermissionUtil.verifyPermissions(this);
     }
 
 //    @Override

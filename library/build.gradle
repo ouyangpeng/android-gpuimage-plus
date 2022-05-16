@@ -1,13 +1,18 @@
 apply plugin: 'com.android.library'
 
+def getSdkVersion() {
+    return (gradle.ext != null && gradle.ext.has("sdk_version")) ? gradle.ext.sdk_version : "99.99.9999"
+}
+
 android {
-    compileSdkVersion 25
+    compileSdkVersion 32
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 22
+        minSdkVersion 16
+        targetSdk 30
         versionCode 1
-        versionName "2.4.6"
+
+        versionName getSdkVersion()
 
         ndk {
             moduleName "CGE"
@@ -36,10 +41,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
+    buildToolsVersion '30.0.3'
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.2.0'
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.4.1'
 }
