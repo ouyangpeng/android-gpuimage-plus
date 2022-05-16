@@ -43,11 +43,11 @@ public class MsgUtil {
 
             mContext = new WeakReference<Context>(context);
             mToast = Toast.makeText(mContext.get(), "", duration);
-            mToast.setDuration(duration);
         }
 
         if(mContext.get() != null && mToast != null) {
 //            mToast.cancel();
+            mToast.setDuration(duration);
             mToast.setText(msg);
             mToast.show();
         }

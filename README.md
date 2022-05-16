@@ -20,10 +20,10 @@ repositories {
 //Choose only one of them
 dependencies {
     //All arch: armeabi, armeabi-v7a, arm64-v8a, x86
-    compile 'org.wysaid:gpuimage-plus:2.6.3'
+    compile 'org.wysaid:gpuimage-plus:2.7.0'
 
     //Pure graphics lib without ffmpeg. (all arch for branch 'min')
-    compile 'org.wysaid:gpuimage-plus:2.6.3-min'
+    compile 'org.wysaid:gpuimage-plus:2.7.0-min'
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 
 * Demo and Library will be updated as needed. Welcome for your questions or PR.
 
-* To build with the jni part, pleasae try:
+* To build with the jni part, please try:
 
 ```shell
 export NDK=path/of/your/ndk
